@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 
 import Navbar from "./Navbar";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Upload from "./pages/Upload";
 import Dashboard from "./pages/Dashboard";
 import Leaderboard from "./pages/Leaderboard";
@@ -42,6 +43,8 @@ function App() {
             path="/login"
             element={!isAuth ? <Login /> : <Navigate to="/" />}
           />
+
+          <Route path="/register" element={<Register />} />
 
           {/* 🏠 LANDING */}
           <Route

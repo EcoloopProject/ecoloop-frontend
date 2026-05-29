@@ -73,6 +73,12 @@ export default function Login() {
           >
             Login
           </button>
+          <p
+  className="text-center mt-4 text-green-300 cursor-pointer"
+  onClick={() => (window.location.href = "/register")}
+>
+  New User? Create Account
+</p>
         </div>
       </div>
     </div>
