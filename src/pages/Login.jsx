@@ -8,7 +8,7 @@ export default function Login() {
   const handleLogin = async () => {
     try {
 
-      const res = await fetch("https://ecoloop-backend-ukxb.onrender.com/api/login/", {
+      const res = await fetch("http://127.0.0.1:8000/api/login/", {
         method: "POST", // ✅ comma fixed
         headers: {
           "Content-Type": "application/json",
