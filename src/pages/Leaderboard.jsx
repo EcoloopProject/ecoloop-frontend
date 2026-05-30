@@ -10,7 +10,7 @@ useEffect(() => {
 
     console.log("TOKEN:", token);
 
-    const res = await fetch("http://127.0.0.1:8000/api/leaderboard/", {
+    const res = await fetch("https://ecoloop-backend-1.onrender.com/api/leaderboard/", {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`, // ✅ now valid
