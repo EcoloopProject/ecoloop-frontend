@@ -7,12 +7,44 @@ export default function Home({ onUpload }) {
   const [preview, setPreview] = useState(null);
   const fileRef = useRef();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!weight) return;
-    onUpload(parseFloat(weight)); 
-    setSubmitted(true);
-  };
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!weight) return;
+
+  const token = localStorage.getItem("token");
+
+  try {
+    const res = await fetch(
+      "https://ecoloop-backend-1.onrender.com/api/recycling/submit/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          waste_type: wasteType,
+          quantity: weight,
+        }),
+      }
+    );
+
+    const data = await res.json();
+
+    console.log(data);
+
+    if (res.ok) {
+      onUpload(parseFloat(weight));
+      setSubmitted(true);
+    } else {
+      alert("Upload failed");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Server error");
+  }
+};
 
   /* ✅ SUCCESS SCREEN */
   if (submitted) {
