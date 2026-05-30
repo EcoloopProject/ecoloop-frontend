@@ -22,6 +22,8 @@ export default function Login() {
 
       if (data.access) {
         localStorage.setItem("token", data.access);
+       
+
         console.log("TOKEN SAVED");
 
         window.location.href = "/";

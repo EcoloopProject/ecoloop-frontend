@@ -12,8 +12,7 @@ useEffect(() => {
         return;
       }
 
-      const res = await fetch(
-        "https://ecoloop-backend-ukxb.onrender.com/api/auth/profile/",
+      const res = await fetch("http://127.0.0.1:8000/api/auth/profile/",
         {
           method: "GET",
 

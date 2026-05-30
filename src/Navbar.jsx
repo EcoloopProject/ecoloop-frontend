@@ -19,6 +19,8 @@ export default function Navbar() {
     window.location.href = "/login";
   };
 
+   
+
   return (
     <div style={navContainer}>
 
