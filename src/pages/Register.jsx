@@ -8,7 +8,7 @@ export default function Register() {
   const handleRegister = async () => {
   try {
     const res = await fetch(
-      "http://ecoloop-backend-1.onrender.com/api/auth/register/",
+      "https://ecoloop-backend-1.onrender.com/api/auth/register/",
       {
         method: "POST",
         headers: {
