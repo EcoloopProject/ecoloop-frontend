@@ -26,9 +26,9 @@ useEffect(() => {
   fetchLeaderboard();
 }, []);
   // 🔥 SORT AFTER FETCH
-  const sortedPlayers = [...players].sort((a, b) => b.pts - a.pts);
+  const sortedPlayers = [...players].sort((a, b) => b.points - a.points);
 
-  const maxPoints = sortedPlayers[0]?.pts || 1;
+  const maxPoints = sortedPlayers[0]?.points || 1;
   const top3 = sortedPlayers.slice(0, 3);
   const rest = sortedPlayers.slice(3);
 
@@ -46,7 +46,7 @@ useEffect(() => {
             <div style={rankBadgeStyle(2)}>2</div>
             <div style={avatarStyle(top3[1].self)}>👤</div>
             <h3>{top3[1].name}</h3>
-            <XPBar pts={top3[1].pts} max={maxPoints} />
+            <XPBar points={top3[1].points} max={maxPoints} />
           </div>
         )}
 
@@ -55,7 +55,7 @@ useEffect(() => {
             <div style={rankBadgeStyle(1)}>1</div>
             <div style={{ ...avatarStyle(top3[0].self), fontSize: "50px" }}>👤</div>
             <h2>{top3[0].name}</h2>
-            <XPBar pts={top3[0].pts} max={maxPoints} />
+            <XPBar points={top3[0].points} max={maxPoints} />
           </div>
         )}
 
@@ -64,7 +64,7 @@ useEffect(() => {
             <div style={rankBadgeStyle(3)}>3</div>
             <div style={avatarStyle(top3[2].self)}>👤</div>
             <h3>{top3[2].name}</h3>
-            <XPBar pts={top3[2].pts} max={maxPoints} />
+            <XPBar points={top3[2].points} max={maxPoints} />
           </div>
         )}
       </div>
@@ -81,10 +81,10 @@ useEffect(() => {
             </div>
 
             <div style={{ width: "40%" }}>
-              <XPBar pts={p.pts} max={maxPoints} small />
+              <XPBar points={p.points} max={maxPoints} small />
             </div>
 
-            <span style={pointsText}>{p.pts} pts</span>
+            <span style={pointsText}>{p.points} points</span>
           </div>
         ))}
       </div>
@@ -93,8 +93,8 @@ useEffect(() => {
 }
 
 /* 🎮 XP BAR */
-function XPBar({ pts, max, small }) {
-  const width = (pts / max) * 100;
+function XPBar({ points, max, small }) {
+  const width = (points / max) * 100;
 
   return (
     <div style={{ width: "100%", marginTop: "8px" }}>
@@ -103,7 +103,7 @@ function XPBar({ pts, max, small }) {
       </div>
       {!small && (
         <p style={{ fontSize: "12px", marginTop: "4px", color: "#94a3b8" }}>
-          {pts} pts
+          {points} points
         </p>
       )}
     </div>
